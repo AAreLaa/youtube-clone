@@ -84,10 +84,10 @@
         <section class="content">
             <div class="play-video">
                 <iframe width="100%" height="400px" src="https://www.youtube.com/embed/MKbis1d15yQ?autoplay=1&mute=1"
-                title="Aranmanai 3 (2023) New Released Hindi Dubbed Movie | Arya, Sundar C, Raashii Khanna, Andrea Jeremiah"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
+                    title="Aranmanai 3 (2023) New Released Hindi Dubbed Movie | Arya, Sundar C, Raashii Khanna, Andrea Jeremiah"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
             </div>
             <h1 class="content-title">Jacob and the Stone</h1>
             <div class="content-info">
@@ -117,49 +117,59 @@
                         <img src="assests/images/icons/share.svg" alt="share" class="content-share-icon">
                         <span class="share">Share</span>
                         <div class="tooltip">Share</div>
-                        <div class="content-share-modal">
-                            <div class="head">
-                                <span class="share">Share</span>
-                                <span class="cross">&times;</span>
+                    </button>
+                    <div class="content-share-modal">
+                        <div class="head">
+                            <span class="share">Share</span>
+                            <img src="assests/images/icons/cross.svg" alt="" class="cross">
+                        </div>
+                        <div class="share-option">
+                            <div>
+                                <img src="assests/images/icons/embed.svg" alt="">
+                                <span>Embed</span>
                             </div>
-                            <div class="share-option">
-                                <div>
-                                    <img src="assests/images/icons/embed.svg" alt="">
-                                    <span>embed</span>
-                                </div>
+                            <a href="https://api.whatsapp.com/send/?text=https%3A%2F%2Fyoutu.be%2FPK35ulIX5P4%3Fsi%3DISYxp9Qqz-z2nXKm&type=custom_url&app_absent=0"
+                                target="_blank">
                                 <div>
                                     <img src="assests/images/icons/whatsapp.svg" alt="">
                                     <span>WhatsApp</span>
                                 </div>
+                            </a>
+                            <a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=87741124305&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv12.0%2Fdialog%2Fshare%3Fdisplay%3Dpopup%26href%3Dhttps%253A%252F%252Fyoutube.com%252Fwatch%253Fv%253DPK35ulIX5P4%2526si%253DISYxp9Qqz-z2nXKm%26client_id%3D87741124305%26ret%3Dlogin&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Freturn%2Fclose%3Ferror_code%3D4201%26error_message%3DUser%2Bcanceled%2Bthe%2BDialog%2Bflow%23_%3D_&display=popup&locale=en_US" target="_blank">
                                 <div>
                                     <img src="assests/images/icons/fb.svg" alt="">
                                     <span>Facebook</span>
                                 </div>
+                            </a>
+                            <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fintent%2Ftweet%3Furl%3Dhttps%253A%2F%2Fyoutu.be%2FPK35ulIX5P4%253Fsi%253DISYxp9Qqz-z2nXKm%26text%3DJacob%2520and%2520the%2520Stone%26via%3DYouTube%26related%3DYouTube%2CYouTubeTrends%2CYTCreators" target="_blank">
                                 <div>
                                     <img src="assests/images/icons/twitter.svg" alt="">
-                                    <span>Twitter</span>
+                                    <span>X</span>
                                 </div>
-                                <div>
-                                    <img src="assests/images/icons/email.svg" alt="">
-                                    <span>Email</span>
-                                </div>
-                                <div>
-                                    <img src="assests/images/icons/reddit.svg" alt="">
-                                    <span>Reddit</span>
-                                </div>
+                            </a>
+                            <div>
+                                <img src="assests/images/icons/email.svg" alt="">
+                                <span>Email</span>
                             </div>
-                            <div class="copy-clipboard">
-                                <span>https://youtu.be/PK35ulIX5P4?feature=shared</span>
-                                <span class="copy-button">Copy</span>
-                            </div>
-                            <hr>
-                            <div class="start">
-                                <input type="checkbox" class="checkbox">
-                                <span class="start">Start at</span>
-                                <span class="time">0:00</span>
+                            <div>
+                                <img src="assests/images/icons/reddit.svg" alt="">
+                                <span>Reddit</span>
                             </div>
                         </div>
-                    </button>
+                        <div class="copy-clipboard">
+                            <span id="youtube-link">https://youtu.be/PK35ulIX5P4?feature=shared</span>
+                            <span class="copy-button" onclick="copyToClipboard()">Copy</span>
+                        </div>
+                        <div class="copied-notification">
+                            Link Copied to clipboard
+                        </div>
+                        <hr>
+                        <div class="start">
+                            <input type="checkbox" class="checkbox">
+                            <span class="start">Start at</span>
+                            <span class="time">0:00</span>
+                        </div>
+                    </div>
                     <button class="content-more">
                         <img src="assests/images/icons/more.svg" alt="more" class="content-more-icon">
                     </button>
@@ -280,7 +290,8 @@
         </section>
 
         <aside class="side-recommendation">
-            <article class="side-video-list" id="video1" onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Mind relaxing 2023 | ❤️Mashup (Slowed x Reverb)')">
+            <article class="side-video-list" id="video1"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Mind relaxing 2023 | ❤️Mashup (Slowed x Reverb)')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-1.webp" alt="thumbnail">
                 </a>
@@ -290,7 +301,8 @@
                     <a href="#" class="video-views">25k views &#183 1 months ago </a>
                 </div>
             </article>
-            <article class="side-video-list" id="video2" onclick="playRecommendedVideo('https://www.youtube.com/embed/Uc-a3D1RWhA?autoplay=1&mute=0', 'Romantic Non-stop lofi songs || [slow-reverb] ||')">
+            <article class="side-video-list" id="video2"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/Uc-a3D1RWhA?autoplay=1&mute=0', 'Romantic Non-stop lofi songs || [slow-reverb] ||')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-2.webp" alt="thumbnail">
                 </a>
@@ -300,27 +312,32 @@
                     <a href="#" class="video-views">255k views &#183 3 years ago </a>
                 </div>
             </article>
-            <article class="side-video-list" id="video3" onclick="playRecommendedVideo('https://www.youtube.com/embed/MKbis1d15yQ?autoplay=1&mute=0','Aranmanai 3 (2023) New Released Hindi Dubbed Movie | Arya, Sundar C, Raashii Khanna, Andrea Jeremiah')">
+            <article class="side-video-list" id="video3"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/MKbis1d15yQ?autoplay=1&mute=0','Aranmanai 3 (2023) New Released Hindi Dubbed Movie | Arya, Sundar C, Raashii Khanna, Andrea Jeremiah')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-3.webp" alt="thumbnail">
                 </a>
                 <div class="video-info">
-                    <a href="#" class="video-title">Aranmanai 3 (2023) New Released Hindi Dubbed Movie | Arya, Sundar C, Raashii Khanna, Andrea Jeremiah</a>
+                    <a href="#" class="video-title">Aranmanai 3 (2023) New Released Hindi Dubbed Movie | Arya, Sundar C,
+                        Raashii Khanna, Andrea Jeremiah</a>
                     <a href="#" class="channel-name">Nameless</a>
                     <a href="#" class="video-views">255k views &#183 3 days ago </a>
                 </div>
             </article>
-            <article class="side-video-list" id="video4" onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'I discovered this song from tik tok I instantly paused and went to YouTube.')">
+            <article class="side-video-list" id="video4"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'I discovered this song from tik tok I instantly paused and went to YouTube.')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-4.webp" alt="thumbnail">
                 </a>
                 <div class="video-info">
-                    <a href="#" class="video-title">I discovered this song from tik tok I instantly paused and went to YouTube.</a>
+                    <a href="#" class="video-title">I discovered this song from tik tok I instantly paused and went to
+                        YouTube.</a>
                     <a href="#" class="channel-name">Heary</a>
                     <a href="#" class="video-views">55k views &#183 4 months ago </a>
                 </div>
             </article>
-            <article class="side-video-list" id="video5" onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'I instantly paused and went to YouTube. Hour Seamless Loopahs1')">
+            <article class="side-video-list" id="video5"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'I instantly paused and went to YouTube. Hour Seamless Loopahs1')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-5.webp" alt="thumbnail">
                 </a>
@@ -331,17 +348,20 @@
                     <a href="#" class="video-views">255k views &#183 3 years ago </a>
                 </div>
             </article>
-            <article class="side-video-list" id="video6" onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Jacob and I discovered this song from tik tok I instantly paused and went to YouTube.')">
+            <article class="side-video-list" id="video6"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Jacob and I discovered this song from tik tok I instantly paused and went to YouTube.')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-2.webp" alt="thumbnail">
                 </a>
                 <div class="video-info">
-                    <a href="#" class="video-title">Jacob and I discovered this song from tik tok I instantly paused and went to YouTube.</a>
+                    <a href="#" class="video-title">Jacob and I discovered this song from tik tok I instantly paused and
+                        went to YouTube.</a>
                     <a href="#" class="channel-name">Emil Lorin</a>
                     <a href="#" class="video-views">255k views &#183 3 days ago </a>
                 </div>
             </article>
-            <article class="side-video-list" id="video7" onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Stone song from tik tok went to YouTube. 1 Hour Seamless Loop')">
+            <article class="side-video-list" id="video7"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Stone song from tik tok went to YouTube. 1 Hour Seamless Loop')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-8.webp" alt="thumbnail">
                 </a>
@@ -351,7 +371,8 @@
                     <a href="#" class="video-views">255k views &#183 7 months ago </a>
                 </div>
             </article>
-            <article class="side-video-list" id="video8" onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Jacob and the Stone | 1 Hour Seamless Loop')">
+            <article class="side-video-list" id="video8"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Jacob and the Stone | 1 Hour Seamless Loop')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-9.webp" alt="thumbnail">
                 </a>
