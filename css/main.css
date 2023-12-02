@@ -430,26 +430,42 @@ a {
   /* css for modal */
 
   .content-share-modal{
-    position: absolute;
-    display:none;
+    position: fixed;
+    display:flex;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
     color: black;
     box-shadow: 1px 2px 3px rgba(0,0,0,0.5);
     border-radius: 1rem;
-    padding: 1rem 1rem 0.1rem;
-    bottom: 0;
-    left: 0;
+    padding: 2rem 2rem 2rem;
+    top: 50%;
+    left: 50%;
     z-index: 2;
     pointer-events: all;
     cursor: pointer;
     gap: 1rem;
-    height: 300px;
+    height: 325px;
+    width: 525px;
+    margin-top: calc(-325px/2);
+    margin-left: calc(-525px/2);
+    justify-content: space-between;
   }
 
   .content-share-modal .head{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+
+  .head .share{
+    font-size: 1rem;
+    font-weight: 300;
+    color: #2d2d2d;
+  }
+
+  .head .cross{
+    height: 1.5rem;
+    width: 1.5rem;
   }
 
   .share-option{
@@ -457,17 +473,35 @@ a {
     gap: 1rem;
   }
 
+  .share-option div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
   .share-option img{
     width: 60px;
   }
 
+  .share-option span{
+    font-size: 0.75rem;
+    text-align: center;
+  }
+
   .copy-clipboard{
     display: flex;
-    border: 1px solid grey;
+    border: 1px solid rgb(195, 195, 195);
     border-radius: 10px;
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem;
+  }
+
+  .copy-clipboard span{
+    font-size: 0.875rem;
+    font-weight: 200;
   }
 
   .copy-button{
@@ -482,14 +516,22 @@ a {
     background-color: #05489f;
   }
 
+  .content-share-modal hr{
+    color: rgb(182, 182, 182);
+  }
+
   .start{
     display: flex;
     align-items: flex-start;
     gap: 0.5rem;
+    font-size: 0.875rem;
+    color: rgb(115, 115, 115);
+    padding-left: 0.5rem;
   }
 
   .start .checkbox{
     appearance: none;
+    cursor: pointer;
     border: solid black;
     border-width: 2px;
     width: 20px;
@@ -497,6 +539,6 @@ a {
   }
 
   .start .time{
-    color: grey;
+    color: rgb(141, 140, 140);
   }
 
