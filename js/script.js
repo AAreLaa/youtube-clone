@@ -85,4 +85,16 @@ const contentDislike = () => {
    
 }
 
+//copy youtube link from share modal
+
+const copyToClipboard = () =>{
+    let copy = document.getElementById("youtube-link").innerText;
+    let notification = document.getElementsByClassName("copied-notification")[0];
+    notification.style.display = "block"
+    navigator.clipboard.writeText(copy);
+    setTimeout((()=>{
+        notification.style.display = "none";
+    }), 2000)
+
+}
 
