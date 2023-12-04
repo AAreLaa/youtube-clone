@@ -33,6 +33,7 @@ const openCloseUploadModal = (modalClick, buttonClick) => {
         uploadModal[0].classList.remove("upload-modal_show");
         uploadButton[0].classList.remove("header__upload-icon-button_active");
     }
+    scrollDisable();
 }
 
 
@@ -48,6 +49,21 @@ const openCloseNotificationModal = (modalClick, buttonClick) => {
         notificationModal[0].classList.remove("notification-modal_show");
         notificationButton[0].classList.remove("header__bell-icon-button_active");
     }
+    scrollDisable();
+}
+
+//scrolling disabled when notification or upload modal is open
+const scrollDisable = () =>{
+    const uploadModal = document.getElementsByClassName("upload-modal");
+    const notificationModal = document.getElementsByClassName("notification-modal");
+
+    if (notificationModal[0].classList.contains("notification-modal_show") || uploadModal[0].classList.contains("upload-modal_show") ){
+        document.body.style.overflow = "hidden";
+    }
+    else{
+        document.body.style.overflow = "auto";
+    }
+
 }
 
 //play recommended video
