@@ -130,3 +130,43 @@ const copyToClipboard = () =>{
 
 }
 
+//fetch and show comments in comment section
+showComment = () =>{
+    fetch("./assests/data/comments.json")
+.then((response)=>{
+    return response.json();
+})
+.then((comment)=>{
+    let addComment = '';
+    let insertComment = document.getElementsByClassName("old-comment")[0];
+    for (let i of comment.comments){
+        console.log(i.authorDisplayName);
+        addComment += `
+        <div class="comment-container">
+                        <div class="comments">
+                            <img src=${i.authorProfileImageUrl} alt="" class="comment-channel-img">
+                            <div class="comment-channel-info">
+                                <span class="comment-channel-name">${i.authorDisplayName}</span>
+                                <span class="comment-channel-date">${i.authorPostDate}</span>
+                                <p class="display-comment">${i.authorComment}</p>
+                            </div>
+                        </div>
+                        <div class="comment-like-dislike">
+                            <div class="comment-like">
+                                <img src="assests/images/icons/like.svg" alt="like" class="comment-like-icon">
+                                <div class="tooltip">Like</div>
+                            </div>
+                            <span class="likes">${i.authorCommentLikes}</span>
+                            <div class="comment-dislike">
+                                <img src="assests/images/icons/dislike.svg" alt="" class="comment-dislike-icon">
+                                <div class="tooltip">Dislike</div>
+                            </div>
+                            <span class="reply">Reply</span>
+                        </div>
+                    </div>
+        `
+    }
+    insertComment.innerHTML = addComment;
+})
+}
+showComment();
