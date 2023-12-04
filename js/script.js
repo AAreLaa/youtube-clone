@@ -89,12 +89,15 @@ const contentDislike = () => {
 const openCloseShareModal = (modalClick, buttonClick, checkClick) =>{
     const shareModal = document.getElementsByClassName("content-share-modal");
     const shareButton = document.getElementsByClassName("content-share");
+    const modalBackground = document.getElementsByClassName("modal-background")[0];
     const closeModal = document.getElementsByClassName("cross");
     if (buttonClick == shareButton[0]) {
         shareModal[0].classList.toggle("content-share-modal_show");
+        modalBackground.classList.toggle("modal-background_show");
     }
     else if ((buttonClick != shareButton[0] && modalClick != shareModal[0])|| closeModal[0] == checkClick) {
         shareModal[0].classList.remove("content-share-modal_show");
+        modalBackground.classList.remove("modal-background_show");
     }
 }
 
