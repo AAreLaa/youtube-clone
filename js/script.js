@@ -189,5 +189,12 @@ let handleCommentButton = () => {
     }
 }
 
+//hide comment confirmation and clear input field when cancel button is pressed
+let cancelComment = () => {
+    let inputComment = document.querySelector(".input-comment");
+    let commentConfirmation = document.getElementsByClassName("comment-confirmation")[0];
+    inputComment.value = "";
+    commentConfirmation.classList.remove("comment-confirmation_show");
+}
 
 

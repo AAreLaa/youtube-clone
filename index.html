@@ -197,7 +197,7 @@
                         <div class="add-comment-right-section">
                             <input type="text" class="input-comment" placeholder="Add a comment..." onclick="showCommentConfirmation()" oninput="handleCommentButton()">
                             <div class="comment-confirmation">
-                                <button class="cancel-comment-button">Cancel</button>
+                                <button class="cancel-comment-button" onClick="cancelComment()">Cancel</button>
                                 <button class="comment-button">Comment</button>
                             </div>
                         </div>
@@ -211,7 +211,6 @@
                 </div>
             </div>
         </section>
-
         <aside class="side-recommendation">
             <article class="side-video-list" id="video1"
                 onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Mind relaxing 2023 | ❤️Mashup (Slowed x Reverb)')">
