@@ -246,17 +246,29 @@ main {
 
 .input-comment{
     margin-left: 1rem;
+    padding-bottom: 0.2rem;
     border: 0;
     outline: none;
     border-bottom: 1px;
     border-style: solid;
     border-color: rgb(234, 227, 227);
-    width:100%
+    width:95%;
+    transition: border-bottom-width 0.2s, border-color 0.2s;
+}
+
+.input-comment:focus{
+    border-color: #000000;
+    border-bottom-width: 3px;
 }
 
 .comment-confirmation{
+    display: none;
     float: right;
     padding-top: 1rem;
+}
+
+.comment-confirmation_show{
+    display: block;
 }
 
 .cancel-comment-button{
@@ -286,6 +298,12 @@ main {
 
 .comment-button:hover{
     background-color: #1b5cb1;
+}
+
+.comment-button:disabled{
+    pointer-events: none;
+    background-color: transparent;
+    color: grey;
 }
 
 /* css for the fetched comments */

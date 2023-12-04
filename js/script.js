@@ -140,7 +140,6 @@ showComment = () =>{
     let addComment = '';
     let insertComment = document.getElementsByClassName("old-comment")[0];
     for (let i of comment.comments){
-        console.log(i.authorDisplayName);
         addComment += `
         <div class="comment-container">
                         <div class="comments">
@@ -170,3 +169,25 @@ showComment = () =>{
 })
 }
 showComment();
+
+//show comment cofirmation button for adding new comments
+showCommentConfirmation = () =>{
+    let commentConfirmation = document.getElementsByClassName("comment-confirmation")[0];
+    let commentButton = document.getElementsByClassName("comment-button")[0];
+    commentConfirmation.classList.add("comment-confirmation_show");
+    commentButton.disabled = true;
+}
+
+//enable and disable comment button
+let handleCommentButton = () => {
+    let commentButton = document.querySelector(".comment-button");
+    let inputComment = document.querySelector(".input-comment");
+    if(inputComment.value === "") {
+        commentButton.disabled = true;
+    } else {
+        commentButton.disabled = false;
+    }
+}
+
+
+
