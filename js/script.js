@@ -197,4 +197,38 @@ let cancelComment = () => {
     commentConfirmation.classList.remove("comment-confirmation_show");
 }
 
+//add new comment
+let addNewComment = () =>{
+    let newComment = document.querySelector(".new-comment");
+    let commentConfirmation = document.querySelector(".comment-confirmation");
+    let inputComment = document.querySelector(".input-comment");
+    let addComment = `
+    <div class="comment-container">
+                    <div class="comments">
+                        <img src="./assests/images/channel-images/unnamed.jpg" alt="" class="comment-channel-img">
+                        <div class="comment-channel-info">
+                            <span class="comment-channel-name">@Nabin</span>
+                            <span class="comment-channel-date">0 seconds ago</span>
+                            <p class="display-comment">${inputComment.value}</p>
+                        </div>
+                    </div>
+                    <div class="comment-like-dislike">
+                        <div class="comment-like">
+                            <img src="assests/images/icons/like.svg" alt="like" class="comment-like-icon">
+                            <div class="tooltip">Like</div>
+                        </div>
+                        <span class="likes"></span>
+                        <div class="comment-dislike">
+                            <img src="assests/images/icons/dislike.svg" alt="" class="comment-dislike-icon">
+                            <div class="tooltip">Dislike</div>
+                        </div>
+                        <span class="reply">Reply</span>
+                    </div>
+                </div>
+    `
+    newComment.innerHTML += addComment;
+    commentConfirmation.classList.remove("comment-confirmation_show");
+    inputComment.value = "";
+}
+
 
