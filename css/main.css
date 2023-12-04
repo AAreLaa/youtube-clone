@@ -431,7 +431,7 @@ a {
 
   .content-share-modal{
     position: fixed;
-    display:flex;
+    display: none;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
     color: black;
@@ -449,6 +449,10 @@ a {
     margin-top: calc(-325px/2);
     margin-left: calc(-525px/2);
     justify-content: space-between;
+  }
+
+  .content-share-modal_show{
+    display: flex;
   }
 
   .content-share-modal .head{

@@ -3,7 +3,7 @@ window.onclick = (event) => {
     searchRecommendation();
     openCloseUploadModal(event.target.closest(".upload-modal"), event.target.closest(".header__upload-icon-button"));
     openCloseNotificationModal(event.target.closest(".notification-modal"), event.target.closest(".header__bell-icon-button"));
-
+    openCloseShareModal(event.target.closest(".content-share-modal"), event.target.closest(".content-share"),event.target);
 }
 
 //for showing search recommendation
@@ -83,6 +83,19 @@ const contentDislike = () => {
         likeButton.classList.remove("content-like_active");
     }
    
+}
+
+//opening and closing content share modal
+const openCloseShareModal = (modalClick, buttonClick, checkClick) =>{
+    const shareModal = document.getElementsByClassName("content-share-modal");
+    const shareButton = document.getElementsByClassName("content-share");
+    const closeModal = document.getElementsByClassName("cross");
+    if (buttonClick == shareButton[0]) {
+        shareModal[0].classList.toggle("content-share-modal_show");
+    }
+    else if ((buttonClick != shareButton[0] && modalClick != shareModal[0])|| closeModal[0] == checkClick) {
+        shareModal[0].classList.remove("content-share-modal_show");
+    }
 }
 
 //copy youtube link from share modal
