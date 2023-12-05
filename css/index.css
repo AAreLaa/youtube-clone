@@ -28,3 +28,24 @@
   .modal-background_show{
     display: block;
   }
+
+  /* css for custom scrollbar */
+  
+  ::-webkit-scrollbar {
+    width: 12px;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border: 5px solid white;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
