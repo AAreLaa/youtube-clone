@@ -190,8 +190,12 @@
                 <div class="comment-info">
                     <span class="total-comments">412 comments</span>
                     <img src="assests/images/icons/sort.svg" alt="" class="sort-image-icon">
-                    <span class="sort-by">Sort by
+                    <span class="sort-by" onclick = "showSortOption()">Sort by
                         <div class="tooltip">Sort Comments</div>
+                        <div class="sort-container">
+                            <p class="top-comments" onclick="showComment()">Top Comments</p>
+                            <p class="newest-first" onclick="sortByNew()">Newest First</p>
+                        </div>
                     </span>
                 </div>
                 <div class="add-comment-container">
