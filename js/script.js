@@ -143,7 +143,7 @@ showComment = () => {
             let insertComment = document.getElementsByClassName("old-comment")[0];
             for (let i of comment.comments) {
                 addComment += `
-        <div class="comment-container">
+        <div class="comment-container" id=${i.id}>
                         <div class="comments">
                             <img src=${i.authorProfileImageUrl} alt="" class="comment-channel-img">
                             <div class="comment-channel-info">
@@ -162,9 +162,23 @@ showComment = () => {
                                 <img src="assests/images/icons/dislike.svg" alt="" class="comment-dislike-icon">
                                 <div class="tooltip">Dislike</div>
                             </div>
-                            <span class="reply">Reply</span>
-                        </div>
+                            <span class="reply" id = "reply${i.id}" onclick="showReplySection(this.id)">Reply</span>
+                            </div>
+                            <div class="add-reply" id = "add-reply-${i.id}">
+                                <img src="assests/images/channel-images/unnamed.jpg" alt="" class="account-image-reply">
+                                <div class="add-comment-right-section">
+                                    <input type="text" class="input-reply" id = "input-reply-${i.id}" placeholder="Add a reply..." oninput="handleReplyButton(this.id)">
+                                    <div class="reply-confirmation">
+                                        <button class="cancel-reply-button" id = "cancel-reply-${i.id}" onClick="cancelReply(this.id)">Cancel</button>
+                                        <button class="reply-button" id = "reply-button-${i.id}" onclick="addNewReply(this.id)">Reply</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="show-reply" id = "show-reply-${i.id}">
+                            </div>
                     </div>
+
+                    
         `
             }
             insertComment.innerHTML = addComment;
@@ -204,7 +218,7 @@ let cancelComment = () => {
 }
 
 //add new comment
-let idToNewComment = 0;
+let idToNewComment = 10;
 let addNewComment = () => {
     let newComment = document.querySelector(".new-comment");
     let commentConfirmation = document.querySelector(".comment-confirmation");
@@ -338,7 +352,7 @@ let sortComments = () => {
             let insertComment = document.getElementsByClassName("old-comment")[0];
             for (let i of comment.comments) {
                 addComment += `
-                        <div class="comment-container">
+                        <div class="comment-container" id=${i.id}>
                                 <div class="comments">
                                     <img src=${i.authorProfileImageUrl} alt="" class="comment-channel-img">
                                     <div class="comment-channel-info">
@@ -357,9 +371,21 @@ let sortComments = () => {
                                         <img src="assests/images/icons/dislike.svg" alt="" class="comment-dislike-icon">
                                         <div class="tooltip">Dislike</div>
                                     </div>
-                                    <span class="reply">Reply</span>
+                                    <span class="reply" id = "reply${i.id}" onclick="showReplySection(this.id)">Reply</span>
+                            </div>
+                            <div class="add-reply" id = "add-reply-${i.id}">
+                                <img src="assests/images/channel-images/unnamed.jpg" alt="" class="account-image-reply">
+                                <div class="add-comment-right-section">
+                                    <input type="text" class="input-reply" id = "input-reply-${i.id}" placeholder="Add a reply..." oninput="handleReplyButton(this.id)">
+                                    <div class="reply-confirmation">
+                                        <button class="cancel-reply-button" id = "cancel-reply-${i.id}" onClick="cancelReply(this.id)">Cancel</button>
+                                        <button class="reply-button" id = "reply-button-${i.id}" onclick="addNewReply(this.id)">Reply</button>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="show-reply" id = "show-reply-${i.id}">
+                            </div>
+                    </div>
         `
             }
             insertComment.innerHTML = addComment;
