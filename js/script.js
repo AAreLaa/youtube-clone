@@ -169,6 +169,10 @@ showComment = () => {
             }
             insertComment.innerHTML = addComment;
         })
+        let topComment = document.querySelector(".top-comments");
+        let newestFirst = document.querySelector(".newest-first")
+        topComment.classList.add("active");
+        newestFirst.classList.remove("active");
 }
 showComment();
 
@@ -361,7 +365,21 @@ let sortComments = () =>{
             insertComment.innerHTML = addComment;
         })
 }
-sortComments();
+
+//show sort option
+let showSortOption = () =>{
+    let sortContainer = document.querySelector(".sort-container");
+    sortContainer.classList.toggle("sort-container_show");
+}
+
+//sort by newest first
+let sortByNew = () =>{
+    let topComment = document.querySelector(".top-comments");
+    let newestFirst = document.querySelector(".newest-first")
+    topComment.classList.remove("active");
+    newestFirst.classList.add("active");
+    sortComments();
+}
 
 
 
