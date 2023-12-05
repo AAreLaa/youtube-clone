@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <div class="modal-background"></div>
     <!-- header section goes here -->
     <header class="header">
         <div class="header__left-section">
@@ -190,105 +191,26 @@
                         <div class="tooltip">Sort Comments</div>
                     </span>
                 </div>
-                <div class="add-comment">
-                    <img src="assests/images/channel-images/unnamed.jpg" alt="" class="account-image">
-                    <input type="text" class="input-comment" placeholder="Add a comment...">
-                </div>
-                <div class="comment-container">
-                    <div class="comments">
-                        <img src="assests/images/channel-images/channel4.jpg" alt="" class="comment-channel-img">
-                        <div class="comment-channel-info">
-                            <span class="comment-channel-name">@Laivaro</span>
-                            <span class="comment-channel-date">4 months ago</span>
-                            <p class="display-comment">I discovered this song from tik tok I instantly paused and
-                                wentThis song feels like after a long, hard fought battle which you have been wounded
-                                in, you lay there alone, but at peace, with yourself and the</p>
+                <div class="add-comment-container">
+                    <div class="add-comment">
+                        <img src="assests/images/channel-images/unnamed.jpg" alt="" class="account-image">
+                        <div class="add-comment-right-section">
+                            <input type="text" class="input-comment" placeholder="Add a comment..." onclick="showCommentConfirmation()" oninput="handleCommentButton()">
+                            <div class="comment-confirmation">
+                                <button class="cancel-comment-button" onClick="cancelComment()">Cancel</button>
+                                <button class="comment-button" onclick="addNewComment()">Comment</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="comment-like-dislike">
-                        <div class="comment-like">
-                            <img src="assests/images/icons/like.svg" alt="like" class="comment-like-icon">
-                            <div class="tooltip">Like</div>
-                        </div>
-                        <span class="likes">34k</span>
-                        <div class="comment-dislike">
-                            <img src="assests/images/icons/dislike.svg" alt="" class="comment-dislike-icon">
-                            <div class="tooltip">Dislike</div>
-                        </div>
-                        <span class="reply">Reply</span>
                     </div>
                 </div>
-                <div class="comment-container">
-                    <div class="comments">
-                        <img src="assests/images/channel-images/channel2.jpg" alt="" class="comment-channel-img">
-                        <div class="comment-channel-info">
-                            <span class="comment-channel-name">@Laivaro</span>
-                            <span class="comment-channel-date">4 months ago</span>
-                            <p class="display-comment">I discovered this song from tik tok I instantly paused and
-                                wentThis song feels like after a long, hard fought battle which you have been wounded
-                                in, you lay there alone, but at peace, with yourself and the</p>
-                        </div>
-                    </div>
-                    <div class="comment-like-dislike">
-                        <div class="comment-like">
-                            <img src="assests/images/icons/like.svg" alt="like" class="comment-like-icon">
-                        </div>
-                        <span class="likes">34k</span>
-                        <div class="comment-dislike">
-                            <img src="assests/images/icons/dislike.svg" alt="" class="comment-dislike-icon">
-                        </div>
-                        <span class="reply">Reply</span>
-                    </div>
+                <div class="new-comment">
+                    <!-- new comment goes here -->
                 </div>
-                <div class="comment-container">
-                    <div class="comments">
-                        <img src="assests/images/channel-images/channel4.jpg" alt="" class="comment-channel-img">
-                        <div class="comment-channel-info">
-                            <span class="comment-channel-name">@Laivaro</span>
-                            <span class="comment-channel-date">4 months ago</span>
-                            <p class="display-comment">I discovered this song from tik tok I instantly paused and
-                                wentThis song feels like after a long, hard fought battle which you have been wounded
-                                in, you lay there alone, but at peace, with yourself and the</p>
-                        </div>
-                    </div>
-                    <div class="comment-like-dislike">
-                        <div class="comment-like">
-                            <img src="assests/images/icons/like.svg" alt="like" class="comment-like-icon">
-                            <div class="tooltip">Like</div>
-                        </div>
-                        <span class="likes">34k</span>
-                        <div class="comment-dislike">
-                            <img src="assests/images/icons/dislike.svg" alt="" class="comment-dislike-icon">
-                            <div class="tooltip">Dislike</div>
-                        </div>
-                        <span class="reply">Reply</span>
-                    </div>
-                </div>
-                <div class="comment-container">
-                    <div class="comments">
-                        <img src="assests/images/channel-images/channel3.jpg" alt="" class="comment-channel-img">
-                        <div class="comment-channel-info">
-                            <span class="comment-channel-name">@Laivaro</span>
-                            <span class="comment-channel-date">4 months ago</span>
-                            <p class="display-comment">I discovered this song from tik tok I instantly paused and
-                                wentThis song feels like after a long, hard fought battle which you have been wounded
-                                in, you lay there alone, but at peace, with yourself and the</p>
-                        </div>
-                    </div>
-                    <div class="comment-like-dislike">
-                        <div class="comment-like">
-                            <img src="assests/images/icons/like.svg" alt="like" class="comment-like-icon">
-                        </div>
-                        <span class="likes">34k</span>
-                        <div class="comment-dislike">
-                            <img src="assests/images/icons/dislike.svg" alt="" class="comment-dislike-icon">
-                        </div>
-                        <span class="reply">Reply</span>
-                    </div>
+                <div class="old-comment">
+                    <!-- old comment goes here -->
                 </div>
             </div>
         </section>
-
         <aside class="side-recommendation">
             <article class="side-video-list" id="video1"
                 onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Mind relaxing 2023 | ❤️Mashup (Slowed x Reverb)')">

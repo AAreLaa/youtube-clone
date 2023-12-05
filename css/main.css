@@ -230,7 +230,7 @@ main {
 
 .add-comment{
     display: flex;
-    margin-top: 1rem;
+    margin: 2rem 0;
     align-items: start;
 }
 
@@ -240,19 +240,75 @@ main {
     border-radius: 20px;
 }
 
+.add-comment-right-section{
+    width: 100%;
+}
+
 .input-comment{
     margin-left: 1rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.2rem;
     border: 0;
     outline: none;
     border-bottom: 1px;
     border-style: solid;
     border-color: rgb(234, 227, 227);
-    width: 100%;
+    width:95%;
+    transition: border-bottom-width 0.2s, border-color 0.2s;
 }
 
+.input-comment:focus{
+    border-color: #000000;
+    border-bottom-width: 3px;
+}
+
+.comment-confirmation{
+    display: none;
+    float: right;
+    padding-top: 1rem;
+}
+
+.comment-confirmation_show{
+    display: block;
+}
+
+.cancel-comment-button{
+    background-color: transparent;
+    border: none;
+    margin-right: 1rem;
+    font-size: 0.875rem;
+    padding: 0.75rem 0.875rem;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.cancel-comment-button:hover{
+    background-color: #f2f2f2;
+}
+
+.comment-button{
+    background-color: #327bdb;
+    border: none;
+    padding: 0.75rem 0.875rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+}
+
+.comment-button:hover{
+    background-color: #1b5cb1;
+}
+
+.comment-button:disabled{
+    pointer-events: none;
+    background-color: transparent;
+    color: grey;
+}
+
+/* css for the fetched comments */
 .comment-container{
-    margin: 2rem 0;
+    margin: 1rem 0;
 }
 
 .comments{
@@ -431,7 +487,7 @@ a {
 
   .content-share-modal{
     position: fixed;
-    display:flex;
+    display: none;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
     color: black;
@@ -440,7 +496,7 @@ a {
     padding: 2rem 2rem 2rem;
     top: 50%;
     left: 50%;
-    z-index: 2;
+    z-index: 102;
     pointer-events: all;
     cursor: pointer;
     gap: 1rem;
@@ -449,6 +505,10 @@ a {
     margin-top: calc(-325px/2);
     margin-left: calc(-525px/2);
     justify-content: space-between;
+  }
+
+  .content-share-modal_show{
+    display: flex;
   }
 
   .content-share-modal .head{

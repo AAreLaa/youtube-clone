@@ -3,7 +3,7 @@ window.onclick = (event) => {
     searchRecommendation();
     openCloseUploadModal(event.target.closest(".upload-modal"), event.target.closest(".header__upload-icon-button"));
     openCloseNotificationModal(event.target.closest(".notification-modal"), event.target.closest(".header__bell-icon-button"));
-
+    openCloseShareModal(event.target.closest(".content-share-modal"), event.target.closest(".content-share"),event.target);
 }
 
 //for showing search recommendation
@@ -33,6 +33,7 @@ const openCloseUploadModal = (modalClick, buttonClick) => {
         uploadModal[0].classList.remove("upload-modal_show");
         uploadButton[0].classList.remove("header__upload-icon-button_active");
     }
+    scrollDisable();
 }
 
 
@@ -48,6 +49,21 @@ const openCloseNotificationModal = (modalClick, buttonClick) => {
         notificationModal[0].classList.remove("notification-modal_show");
         notificationButton[0].classList.remove("header__bell-icon-button_active");
     }
+    scrollDisable();
+}
+
+//scrolling disabled when notification or upload modal is open
+const scrollDisable = () =>{
+    const uploadModal = document.getElementsByClassName("upload-modal");
+    const notificationModal = document.getElementsByClassName("notification-modal");
+
+    if (notificationModal[0].classList.contains("notification-modal_show") || uploadModal[0].classList.contains("upload-modal_show") ){
+        document.body.style.overflow = "hidden";
+    }
+    else{
+        document.body.style.overflow = "auto";
+    }
+
 }
 
 //play recommended video
@@ -85,6 +101,22 @@ const contentDislike = () => {
    
 }
 
+//opening and closing content share modal
+const openCloseShareModal = (modalClick, buttonClick, checkClick) =>{
+    const shareModal = document.getElementsByClassName("content-share-modal");
+    const shareButton = document.getElementsByClassName("content-share");
+    const modalBackground = document.getElementsByClassName("modal-background")[0];
+    const closeModal = document.getElementsByClassName("cross");
+    if (buttonClick == shareButton[0]) {
+        shareModal[0].classList.toggle("content-share-modal_show");
+        modalBackground.classList.toggle("modal-background_show");
+    }
+    else if ((buttonClick != shareButton[0] && modalClick != shareModal[0])|| closeModal[0] == checkClick) {
+        shareModal[0].classList.remove("content-share-modal_show");
+        modalBackground.classList.remove("modal-background_show");
+    }
+}
+
 //copy youtube link from share modal
 
 const copyToClipboard = () =>{
@@ -97,4 +129,106 @@ const copyToClipboard = () =>{
     }), 2000)
 
 }
+
+//fetch and show comments in comment section
+showComment = () =>{
+    fetch("./assests/data/comments.json")
+.then((response)=>{
+    return response.json();
+})
+.then((comment)=>{
+    let addComment = '';
+    let insertComment = document.getElementsByClassName("old-comment")[0];
+    for (let i of comment.comments){
+        addComment += `
+        <div class="comment-container">
+                        <div class="comments">
+                            <img src=${i.authorProfileImageUrl} alt="" class="comment-channel-img">
+                            <div class="comment-channel-info">
+                                <span class="comment-channel-name">${i.authorDisplayName}</span>
+                                <span class="comment-channel-date">${i.authorPostDate}</span>
+                                <p class="display-comment">${i.authorComment}</p>
+                            </div>
+                        </div>
+                        <div class="comment-like-dislike">
+                            <div class="comment-like">
+                                <img src="assests/images/icons/like.svg" alt="like" class="comment-like-icon">
+                                <div class="tooltip">Like</div>
+                            </div>
+                            <span class="likes">${i.authorCommentLikes}</span>
+                            <div class="comment-dislike">
+                                <img src="assests/images/icons/dislike.svg" alt="" class="comment-dislike-icon">
+                                <div class="tooltip">Dislike</div>
+                            </div>
+                            <span class="reply">Reply</span>
+                        </div>
+                    </div>
+        `
+    }
+    insertComment.innerHTML = addComment;
+})
+}
+showComment();
+
+//show comment cofirmation button for adding new comments
+showCommentConfirmation = () =>{
+    let commentConfirmation = document.getElementsByClassName("comment-confirmation")[0];
+    let commentButton = document.getElementsByClassName("comment-button")[0];
+    commentConfirmation.classList.add("comment-confirmation_show");
+    commentButton.disabled = true;
+}
+
+//enable and disable comment button
+let handleCommentButton = () => {
+    let commentButton = document.querySelector(".comment-button");
+    let inputComment = document.querySelector(".input-comment");
+    if(inputComment.value === "") {
+        commentButton.disabled = true;
+    } else {
+        commentButton.disabled = false;
+    }
+}
+
+//hide comment confirmation and clear input field when cancel button is pressed
+let cancelComment = () => {
+    let inputComment = document.querySelector(".input-comment");
+    let commentConfirmation = document.getElementsByClassName("comment-confirmation")[0];
+    inputComment.value = "";
+    commentConfirmation.classList.remove("comment-confirmation_show");
+}
+
+//add new comment
+let addNewComment = () =>{
+    let newComment = document.querySelector(".new-comment");
+    let commentConfirmation = document.querySelector(".comment-confirmation");
+    let inputComment = document.querySelector(".input-comment");
+    let addComment = `
+    <div class="comment-container">
+                    <div class="comments">
+                        <img src="./assests/images/channel-images/unnamed.jpg" alt="" class="comment-channel-img">
+                        <div class="comment-channel-info">
+                            <span class="comment-channel-name">@Nabin</span>
+                            <span class="comment-channel-date">0 seconds ago</span>
+                            <p class="display-comment">${inputComment.value}</p>
+                        </div>
+                    </div>
+                    <div class="comment-like-dislike">
+                        <div class="comment-like">
+                            <img src="assests/images/icons/like.svg" alt="like" class="comment-like-icon">
+                            <div class="tooltip">Like</div>
+                        </div>
+                        <span class="likes"></span>
+                        <div class="comment-dislike">
+                            <img src="assests/images/icons/dislike.svg" alt="" class="comment-dislike-icon">
+                            <div class="tooltip">Dislike</div>
+                        </div>
+                        <span class="reply">Reply</span>
+                    </div>
+                </div>
+    `
+    newComment.innerHTML += addComment;
+    commentConfirmation.classList.remove("comment-confirmation_show");
+    inputComment.value = "";
+}
+
 
