@@ -234,8 +234,24 @@ main {
     align-items: start;
 }
 
+.add-reply{
+    display: none;
+    align-items: start;
+    margin-left: 3rem;
+}
+
+.add-reply_show{
+    display: flex;
+}
+
 .account-image{
     width: 40px;
+    border-style: none;
+    border-radius: 20px;
+}
+
+.account-image-reply{
+    width: 25px;
     border-style: none;
     border-radius: 20px;
 }
@@ -244,7 +260,8 @@ main {
     width: 100%;
 }
 
-.input-comment{
+.input-comment,
+.input-reply{
     margin-left: 1rem;
     padding-bottom: 0.2rem;
     border: 0;
@@ -256,7 +273,8 @@ main {
     transition: border-bottom-width 0.2s, border-color 0.2s;
 }
 
-.input-comment:focus{
+.input-comment:focus,
+.input-reply:focus{
     border-color: #000000;
     border-bottom-width: 3px;
 }
@@ -267,11 +285,19 @@ main {
     padding-top: 1rem;
 }
 
-.comment-confirmation_show{
+.reply-confirmation{
+    display: block;
+    float: right;
+    padding-top: 1rem;
+}
+
+.comment-confirmation_show,
+.reply-confirmation_show{
     display: block;
 }
 
-.cancel-comment-button{
+.cancel-comment-button,
+.cancel-reply-button{
     background-color: transparent;
     border: none;
     margin-right: 1rem;
@@ -281,11 +307,13 @@ main {
     cursor: pointer;
 }
 
-.cancel-comment-button:hover{
+.cancel-comment-button:hover,
+.cancel-reply-comment-button:hover{
     background-color: #f2f2f2;
 }
 
-.comment-button{
+.comment-button,
+.reply-button{
     background-color: #327bdb;
     border: none;
     padding: 0.75rem 0.875rem;
@@ -296,11 +324,13 @@ main {
     cursor: pointer;
 }
 
-.comment-button:hover{
+.comment-button:hover,
+.reply-button:hover{
     background-color: #1b5cb1;
 }
 
-.comment-button:disabled{
+.comment-button:disabled,
+.reply-button:disabled{
     pointer-events: none;
     background-color: transparent;
     color: grey;
@@ -309,6 +339,10 @@ main {
 /* css for the fetched comments */
 .comment-container{
     margin: 1rem 0;
+}
+
+.reply-container{
+    margin: 0rem 3rem;
 }
 
 .comments{
@@ -345,6 +379,14 @@ main {
     display: flex;
     margin-top: 0.5rem;
     margin-left: 3rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+.reply-like-dislike{
+    display: flex;
+    margin-top: 0.5rem;
+    margin-left: 1.2rem;
     align-items: center;
     gap: 1rem;
 }
