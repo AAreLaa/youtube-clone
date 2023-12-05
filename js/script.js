@@ -169,10 +169,10 @@ showComment = () => {
             }
             insertComment.innerHTML = addComment;
         })
-        let topComment = document.querySelector(".top-comments");
-        let newestFirst = document.querySelector(".newest-first")
-        topComment.classList.add("active");
-        newestFirst.classList.remove("active");
+    let topComment = document.querySelector(".top-comments");
+    let newestFirst = document.querySelector(".newest-first")
+    topComment.classList.add("active");
+    newestFirst.classList.remove("active");
 }
 showComment();
 
@@ -324,14 +324,14 @@ let addNewReply = (id) => {
 }
 
 //sorting comments based on time
-let sortComments = () =>{
+let sortComments = () => {
     fetch("./assests/data/comments.json")
         .then((response) => {
             console.log(response)
             return response.json();
         })
         .then((comment) => {
-            comment.comments.sort(function(a, b){
+            comment.comments.sort(function (a, b) {
                 return parseFloat(a.authorPostDate) - parseFloat(b.authorPostDate);
             });
             let addComment = '';
@@ -367,20 +367,253 @@ let sortComments = () =>{
 }
 
 //show sort option
-let showSortOption = () =>{
+let showSortOption = () => {
     let sortContainer = document.querySelector(".sort-container");
     sortContainer.classList.toggle("sort-container_show");
 }
 
 //sort by newest first
-let sortByNew = () =>{
+let sortByNew = () => {
     let topComment = document.querySelector(".top-comments");
-    let newestFirst = document.querySelector(".newest-first")
+    let newestFirst = document.querySelector(".newest-first");
     topComment.classList.remove("active");
     newestFirst.classList.add("active");
     sortComments();
 }
 
+//tag based filter of recommendation
+let recommendAll = () => {
+    let addRecommendtion = document.querySelector(".recommendation-container");
+    addRecommendtion.innerHTML = `
+            <article class="side-video-list" id="video1"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Mind relaxing 2023 | ❤️Mashup (Slowed x Reverb)')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-1.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title">Mind relaxing 2023 | ❤️Mashup (Slowed x Reverb)</a>
+                    <a href="#" class="channel-name">plo Lorin</a>
+                    <a href="#" class="video-views">25k views &#183 1 months ago </a>
+                </div>
+            </article>
+            <article class="side-video-list" id="video2"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/Uc-a3D1RWhA?autoplay=1&mute=0', 'Romantic Non-stop lofi songs || [slow-reverb] ||')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-2.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title"> Romantic Non-stop lofi songs || [slow-reverb] ||</a>
+                    <a href="#" class="channel-name">Phil Foden</a>
+                    <a href="#" class="video-views">255k views &#183 3 years ago </a>
+                </div>
+            </article>
+            <article class="side-video-list" id="video3"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/MKbis1d15yQ?autoplay=1&mute=0','Aranmanai 3 (2023) New Released Hindi Dubbed Movie | Arya, Sundar C, Raashii Khanna, Andrea Jeremiah')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-3.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title">Aranmanai 3 (2023) New Released Hindi Dubbed Movie | Arya,
+                        Sundar C,
+                        Raashii Khanna, Andrea Jeremiah</a>
+                    <a href="#" class="channel-name">Nameless</a>
+                    <a href="#" class="video-views">255k views &#183 3 days ago </a>
+                </div>
+            </article>
+            <article class="side-video-list" id="video4"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'I discovered this song from tik tok I instantly paused and went to YouTube.')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-4.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title">I discovered this song from tik tok I instantly paused and went
+                        to
+                        YouTube.</a>
+                    <a href="#" class="channel-name">Heary</a>
+                    <a href="#" class="video-views">55k views &#183 4 months ago </a>
+                </div>
+            </article>
+            <article class="side-video-list" id="video5"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'I instantly paused and went to YouTube. Hour Seamless Loopahs1')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-5.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title"> I instantly paused and went to YouTube. Hour Seamless Loopahs1
+                        Hour Seamless Loopahsa</a>
+                    <a href="#" class="channel-name">Emil L</a>
+                    <a href="#" class="video-views">255k views &#183 3 years ago </a>
+                </div>
+            </article>
+            <article class="side-video-list" id="video6"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Jacob and I discovered this song from tik tok I instantly paused and went to YouTube.')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-2.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title">Jacob and I discovered this song from tik tok I instantly paused
+                        and
+                        went to YouTube.</a>
+                    <a href="#" class="channel-name">Emil Lorin</a>
+                    <a href="#" class="video-views">255k views &#183 3 days ago </a>
+                </div>
+            </article>
+            <article class="side-video-list" id="video7"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Stone song from tik tok went to YouTube. 1 Hour Seamless Loop')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-8.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title">Stone song from tik tok went to YouTube. 1 Hour Seamless
+                        Loop</a>
+                    <a href="#" class="channel-name">Emil Lorin</a>
+                    <a href="#" class="video-views">255k views &#183 7 months ago </a>
+                </div>
+            </article>
+            <article class="side-video-list" id="video8"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Jacob and the Stone | 1 Hour Seamless Loop')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-9.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title">Jacob and the Stone | 1 Hour Seamless Loop</a>
+                    <a href="#" class="channel-name">Emil Lorin</a>
+                    <a href="#" class="video-views">255k views &#183 3 months ago </a>
+                </div>
+            </article>
+        `
+        document.querySelector(".recommend-all").classList.add("activated");
+        document.querySelector(".recommend-same").classList.remove("activated");
+        document.querySelector(".recommend-related").classList.remove("activated");
+}
+
+let recommendSame = () => {
+    let addRecommendtion = document.querySelector(".recommendation-container");
+    addRecommendtion.innerHTML = `
+            <article class="side-video-list" id="video6"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Jacob and I discovered this song from tik tok I instantly paused and went to YouTube.')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-2.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title">Jacob and I discovered this song from tik tok I instantly paused
+                        and
+                        went to YouTube.</a>
+                    <a href="#" class="channel-name">Emil Mosseri</a>
+                    <a href="#" class="video-views">255k views &#183 3 days ago </a>
+                </div>
+            </article>
+            <article class="side-video-list" id="video7"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Stone song from tik tok went to YouTube. 1 Hour Seamless Loop')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-8.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title">Stone song from tik tok went to YouTube. 1 Hour Seamless
+                        Loop</a>
+                    <a href="#" class="channel-name">Emil Mosseri</a>
+                    <a href="#" class="video-views">255k views &#183 7 months ago </a>
+                </div>
+            </article>
+            <article class="side-video-list" id="video8"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Jacob and the Stone | 1 Hour Seamless Loop')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-9.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title">Jacob and the Stone | 1 Hour Seamless Loop</a>
+                    <a href="#" class="channel-name">Emil Mosseri</a>
+                    <a href="#" class="video-views">255k views &#183 3 months ago </a>
+                </div>
+            </article>
+        `
+        document.querySelector(".recommend-all").classList.remove("activated");
+        document.querySelector(".recommend-same").classList.add("activated");
+        document.querySelector(".recommend-related").classList.remove("activated");
+}
+
+let recommendRelated = () => {
+    let addRecommendtion = document.querySelector(".recommendation-container");
+    addRecommendtion.innerHTML = `
+            <article class="side-video-list" id="video3"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/MKbis1d15yQ?autoplay=1&mute=0','Aranmanai 3 (2023) New Released Hindi Dubbed Movie | Arya, Sundar C, Raashii Khanna, Andrea Jeremiah')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-3.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title">Aranmanai 3 (2023) New Released Hindi Dubbed Movie | Arya,
+                        Sundar C,
+                        Raashii Khanna, Andrea Jeremiah</a>
+                    <a href="#" class="channel-name">Nameless</a>
+                    <a href="#" class="video-views">255k views &#183 3 days ago </a>
+                </div>
+            </article>
+            <article class="side-video-list" id="video4"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'I discovered this song from tik tok I instantly paused and went to YouTube.')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-4.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title">I discovered this song from tik tok I instantly paused and went
+                        to
+                        YouTube.</a>
+                    <a href="#" class="channel-name">Heary</a>
+                    <a href="#" class="video-views">55k views &#183 4 months ago </a>
+                </div>
+            </article>
+            <article class="side-video-list" id="video5"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'I instantly paused and went to YouTube. Hour Seamless Loopahs1')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-5.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title"> I instantly paused and went to YouTube. Hour Seamless Loopahs1
+                        Hour Seamless Loopahsa</a>
+                    <a href="#" class="channel-name">Emil L</a>
+                    <a href="#" class="video-views">255k views &#183 3 years ago </a>
+                </div>
+            </article>
+            <article class="side-video-list" id="video6"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Jacob and I discovered this song from tik tok I instantly paused and went to YouTube.')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-2.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title">Jacob and I discovered this song from tik tok I instantly paused
+                        and
+                        went to YouTube.</a>
+                    <a href="#" class="channel-name">Emil Lorin</a>
+                    <a href="#" class="video-views">255k views &#183 3 days ago </a>
+                </div>
+            </article>
+            <article class="side-video-list" id="video7"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Stone song from tik tok went to YouTube. 1 Hour Seamless Loop')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-8.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title">Stone song from tik tok went to YouTube. 1 Hour Seamless
+                        Loop</a>
+                    <a href="#" class="channel-name">Emil Lorin</a>
+                    <a href="#" class="video-views">255k views &#183 7 months ago </a>
+                </div>
+            </article>
+            <article class="side-video-list" id="video8"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Jacob and the Stone | 1 Hour Seamless Loop')">
+                <a href="#" class="thumbnail">
+                    <img src="assests/images/thumbnails/thumbnail-9.webp" alt="thumbnail">
+                </a>
+                <div class="video-info">
+                    <a href="#" class="video-title">Jacob and the Stone | 1 Hour Seamless Loop</a>
+                    <a href="#" class="channel-name">Emil Lorin</a>
+                    <a href="#" class="video-views">255k views &#183 3 months ago </a>
+                </div>
+            </article>
+        `
+        document.querySelector(".recommend-all").classList.remove("activated");
+        document.querySelector(".recommend-same").classList.remove("activated");
+        document.querySelector(".recommend-related").classList.add("activated");
+}
 
 
 
