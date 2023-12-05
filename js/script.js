@@ -319,6 +319,50 @@ let addNewReply = (id) => {
     inputReply.value = "";
 }
 
+//sorting comments based on time
+let sortComments = () =>{
+    fetch("./assests/data/comments.json")
+        .then((response) => {
+            console.log(response)
+            return response.json();
+        })
+        .then((comment) => {
+            comment.comments.sort(function(a, b){
+                return parseFloat(a.authorPostDate) - parseFloat(b.authorPostDate);
+            });
+            let addComment = '';
+            let insertComment = document.getElementsByClassName("old-comment")[0];
+            for (let i of comment.comments) {
+                addComment += `
+                        <div class="comment-container">
+                                <div class="comments">
+                                    <img src=${i.authorProfileImageUrl} alt="" class="comment-channel-img">
+                                    <div class="comment-channel-info">
+                                        <span class="comment-channel-name">${i.authorDisplayName}</span>
+                                        <span class="comment-channel-date">${i.authorPostDate}</span>
+                                        <p class="display-comment">${i.authorComment}</p>
+                                    </div>
+                                </div>
+                                <div class="comment-like-dislike">
+                                    <div class="comment-like">
+                                        <img src="assests/images/icons/like.svg" alt="like" class="comment-like-icon">
+                                        <div class="tooltip">Like</div>
+                                    </div>
+                                    <span class="likes">${i.authorCommentLikes}</span>
+                                    <div class="comment-dislike">
+                                        <img src="assests/images/icons/dislike.svg" alt="" class="comment-dislike-icon">
+                                        <div class="tooltip">Dislike</div>
+                                    </div>
+                                    <span class="reply">Reply</span>
+                                </div>
+                            </div>
+        `
+            }
+            insertComment.innerHTML = addComment;
+        })
+}
+sortComments();
+
 
 
 
