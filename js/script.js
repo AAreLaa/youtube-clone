@@ -56,14 +56,16 @@ const openCloseNotificationModal = (modalClick, buttonClick) => {
 const scrollDisable = () =>{
     const uploadModal = document.getElementsByClassName("upload-modal");
     const notificationModal = document.getElementsByClassName("notification-modal");
-
+    let scrollTop = window.scrollY;
+    let scrollLeft = window.scrollX;
     if (notificationModal[0].classList.contains("notification-modal_show") || uploadModal[0].classList.contains("upload-modal_show") ){
-        document.body.style.overflow = "hidden";
+        window.onscroll = () => {
+            window.scrollTo(scrollLeft, scrollTop);
+        };
     }
     else{
-        document.body.style.overflow = "auto";
+        window.onscroll = () =>{};
     }
-
 }
 
 //play recommended video
