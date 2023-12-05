@@ -1,6 +1,7 @@
 {
     "comments": [
         {
+            "id": "1",
             "authorDisplayName": "@Laivaro",
             "authorProfileImageUrl": "assests/images/channel-images/channel2.jpg",
             "authorPostDate": "5 months ago",
@@ -9,6 +10,7 @@
             "authorReply": "2 replies"
         },
         {
+            "id": "2",
             "authorDisplayName": "@Loid",
             "authorProfileImageUrl": "assests/images/channel-images/channel5.jpg",
             "authorPostDate": "2 months ago",
@@ -17,6 +19,7 @@
             "authorReply": "22 replies"
         },
         {
+            "id": "3",
             "authorDisplayName": "@klaus",
             "authorProfileImageUrl": "assests/images/channel-images/channel3.jpg",
             "authorPostDate": "3 months ago",
@@ -25,6 +28,7 @@
             "authorReply": "3 replies"
         },
         {
+            "id": "4",
             "authorDisplayName": "@jmn",
             "authorProfileImageUrl": "assests/images/channel-images/channel4.jpg",
             "authorPostDate": "5 months ago",
@@ -33,6 +37,7 @@
             "authorReply": "6 replies"
         },
         {
+            "id": "5",
             "authorDisplayName": "@jmssn",
             "authorProfileImageUrl": "assests/images/channel-images/channel5.jpg",
             "authorPostDate": "2 months ago",
@@ -40,6 +45,7 @@
             "authorCommentLikes": "11K",
             "authorReply": "6 replies"
         },{
+            "id": "6",
             "authorDisplayName": "@embmn",
             "authorProfileImageUrl": "assests/images/channel-images/channel1.jpg",
             "authorPostDate": "9 months ago",
