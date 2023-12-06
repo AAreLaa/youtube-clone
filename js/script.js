@@ -70,9 +70,10 @@ const scrollDisable = () => {
 
 //play recommended video
 
-const playRecommendedVideo = (url, title) => {
+const playRecommendedVideo = (url, title, shareUrl) => {
     document.getElementsByTagName('iframe')[0].src = url;
     document.getElementsByClassName('content-title')[0].innerHTML = title;
+    document.getElementById('youtube-link').innerHTML = shareUrl;
 }
 
 //for content like/dislike
@@ -411,8 +412,8 @@ let sortByNew = () => {
 let recommendAll = () => {
     let addRecommendtion = document.querySelector(".recommendation-container");
     addRecommendtion.innerHTML = `
-            <article class="side-video-list" id="video1"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Mind relaxing 2023 | ❤️Mashup (Slowed x Reverb)')">
+                <article class="side-video-list" id="video1"
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Mind relaxing 2023 | ❤️Mashup (Slowed x Reverb)','https://youtu.be/rXtgCCGWrcE?si=8EeSzDrsnsa7V1Lx')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-1.webp" alt="thumbnail">
                 </a>
@@ -423,7 +424,7 @@ let recommendAll = () => {
                 </div>
             </article>
             <article class="side-video-list" id="video2"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/Uc-a3D1RWhA?autoplay=1&mute=0', 'Romantic Non-stop lofi songs || [slow-reverb] ||')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/Uc-a3D1RWhA?autoplay=1&mute=0', 'Romantic Non-stop lofi songs || [slow-reverb] ||','https://youtu.be/Uc-a3D1RWhA?si=hx8xweOVtazc_7Km')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-2.webp" alt="thumbnail">
                 </a>
@@ -434,7 +435,7 @@ let recommendAll = () => {
                 </div>
             </article>
             <article class="side-video-list" id="video3"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/MKbis1d15yQ?autoplay=1&mute=0','Aranmanai 3 (2023) New Released Hindi Dubbed Movie | Arya, Sundar C, Raashii Khanna, Andrea Jeremiah')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/MKbis1d15yQ?autoplay=1&mute=0','Aranmanai 3 (2023) New Released Hindi Dubbed Movie | Arya, Sundar C, Raashii Khanna, Andrea Jeremiah','https://youtu.be/MKbis1d15yQ?si=AY25FGjlcLQCxxT2')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-3.webp" alt="thumbnail">
                 </a>
@@ -447,7 +448,7 @@ let recommendAll = () => {
                 </div>
             </article>
             <article class="side-video-list" id="video4"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'I discovered this song from tik tok I instantly paused and went to YouTube.')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'I discovered this song from tik tok I instantly paused and went to YouTube.','https://youtu.be/rXtgCCGWrcE?si=5h1CXwylP3f-TgQr')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-4.webp" alt="thumbnail">
                 </a>
@@ -460,7 +461,7 @@ let recommendAll = () => {
                 </div>
             </article>
             <article class="side-video-list" id="video5"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'I instantly paused and went to YouTube. Hour Seamless Loopahs1')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'I instantly paused and went to YouTube. Hour Seamless Loopahs1','https://youtu.be/-I12_W7UHh0?si=hnfvn07C8G_D7e8H')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-5.webp" alt="thumbnail">
                 </a>
@@ -472,7 +473,7 @@ let recommendAll = () => {
                 </div>
             </article>
             <article class="side-video-list" id="video6"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Jacob and I discovered this song from tik tok I instantly paused and went to YouTube.')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Jacob and I discovered this song from tik tok I instantly paused and went to YouTube.','https://youtu.be/rXtgCCGWrcE?si=jJLct-0WchZJhyMv')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-2.webp" alt="thumbnail">
                 </a>
@@ -485,7 +486,7 @@ let recommendAll = () => {
                 </div>
             </article>
             <article class="side-video-list" id="video7"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Stone song from tik tok went to YouTube. 1 Hour Seamless Loop')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Stone song from tik tok went to YouTube. 1 Hour Seamless Loop','https://youtu.be/-I12_W7UHh0?si=UJLJ2pKXMExSvWaO')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-8.webp" alt="thumbnail">
                 </a>
@@ -497,7 +498,7 @@ let recommendAll = () => {
                 </div>
             </article>
             <article class="side-video-list" id="video8"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Jacob and the Stone | 1 Hour Seamless Loop')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Jacob and the Stone | 1 Hour Seamless Loop','https://youtu.be/-I12_W7UHh0?si=UJLJ2pKXMExSvWaO')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-9.webp" alt="thumbnail">
                 </a>
@@ -508,16 +509,16 @@ let recommendAll = () => {
                 </div>
             </article>
         `
-        document.querySelector(".recommend-all").classList.add("activated");
-        document.querySelector(".recommend-same").classList.remove("activated");
-        document.querySelector(".recommend-related").classList.remove("activated");
+    document.querySelector(".recommend-all").classList.add("activated");
+    document.querySelector(".recommend-same").classList.remove("activated");
+    document.querySelector(".recommend-related").classList.remove("activated");
 }
 
 let recommendSame = () => {
     let addRecommendtion = document.querySelector(".recommendation-container");
     addRecommendtion.innerHTML = `
             <article class="side-video-list" id="video6"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Jacob and I discovered this song from tik tok I instantly paused and went to YouTube.')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Jacob and I discovered this song from tik tok I instantly paused and went to YouTube.','https://youtu.be/rXtgCCGWrcE?si=jJLct-0WchZJhyMv')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-2.webp" alt="thumbnail">
                 </a>
@@ -530,7 +531,7 @@ let recommendSame = () => {
                 </div>
             </article>
             <article class="side-video-list" id="video7"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Stone song from tik tok went to YouTube. 1 Hour Seamless Loop')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Stone song from tik tok went to YouTube. 1 Hour Seamless Loop','https://youtu.be/-I12_W7UHh0?si=UJLJ2pKXMExSvWaO')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-8.webp" alt="thumbnail">
                 </a>
@@ -542,7 +543,7 @@ let recommendSame = () => {
                 </div>
             </article>
             <article class="side-video-list" id="video8"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Jacob and the Stone | 1 Hour Seamless Loop')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Jacob and the Stone | 1 Hour Seamless Loop','https://youtu.be/-I12_W7UHh0?si=UJLJ2pKXMExSvWaO')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-9.webp" alt="thumbnail">
                 </a>
@@ -553,16 +554,16 @@ let recommendSame = () => {
                 </div>
             </article>
         `
-        document.querySelector(".recommend-all").classList.remove("activated");
-        document.querySelector(".recommend-same").classList.add("activated");
-        document.querySelector(".recommend-related").classList.remove("activated");
+    document.querySelector(".recommend-all").classList.remove("activated");
+    document.querySelector(".recommend-same").classList.add("activated");
+    document.querySelector(".recommend-related").classList.remove("activated");
 }
 
 let recommendRelated = () => {
     let addRecommendtion = document.querySelector(".recommendation-container");
     addRecommendtion.innerHTML = `
             <article class="side-video-list" id="video3"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/MKbis1d15yQ?autoplay=1&mute=0','Aranmanai 3 (2023) New Released Hindi Dubbed Movie | Arya, Sundar C, Raashii Khanna, Andrea Jeremiah')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/MKbis1d15yQ?autoplay=1&mute=0','Aranmanai 3 (2023) New Released Hindi Dubbed Movie | Arya, Sundar C, Raashii Khanna, Andrea Jeremiah','https://youtu.be/-I12_W7UHh0?si=UJLJ2pKXMExSvWaO')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-3.webp" alt="thumbnail">
                 </a>
@@ -575,7 +576,7 @@ let recommendRelated = () => {
                 </div>
             </article>
             <article class="side-video-list" id="video4"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'I discovered this song from tik tok I instantly paused and went to YouTube.')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'I discovered this song from tik tok I instantly paused and went to YouTube.','https://youtu.be/-I12_W7UHh0?si=UJLJ2pKXMExSvWaO')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-4.webp" alt="thumbnail">
                 </a>
@@ -588,7 +589,7 @@ let recommendRelated = () => {
                 </div>
             </article>
             <article class="side-video-list" id="video5"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'I instantly paused and went to YouTube. Hour Seamless Loopahs1')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'I instantly paused and went to YouTube. Hour Seamless Loopahs1','https://youtu.be/-I12_W7UHh0?si=UJLJ2pKXMExSvWaO')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-5.webp" alt="thumbnail">
                 </a>
@@ -600,7 +601,7 @@ let recommendRelated = () => {
                 </div>
             </article>
             <article class="side-video-list" id="video6"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Jacob and I discovered this song from tik tok I instantly paused and went to YouTube.')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/rXtgCCGWrcE?autoplay=1&mute=0', 'Jacob and I discovered this song from tik tok I instantly paused and went to YouTube.','https://youtu.be/-I12_W7UHh0?si=UJLJ2pKXMExSvWaO')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-2.webp" alt="thumbnail">
                 </a>
@@ -613,7 +614,7 @@ let recommendRelated = () => {
                 </div>
             </article>
             <article class="side-video-list" id="video7"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Stone song from tik tok went to YouTube. 1 Hour Seamless Loop')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Stone song from tik tok went to YouTube. 1 Hour Seamless Loop','https://youtu.be/-I12_W7UHh0?si=UJLJ2pKXMExSvWaO')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-8.webp" alt="thumbnail">
                 </a>
@@ -625,7 +626,7 @@ let recommendRelated = () => {
                 </div>
             </article>
             <article class="side-video-list" id="video8"
-                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Jacob and the Stone | 1 Hour Seamless Loop')">
+                onclick="playRecommendedVideo('https://www.youtube.com/embed/-I12_W7UHh0?autoplay=1&mute=0', 'Jacob and the Stone | 1 Hour Seamless Loop','https://youtu.be/-I12_W7UHh0?si=UJLJ2pKXMExSvWaO')">
                 <a href="#" class="thumbnail">
                     <img src="assests/images/thumbnails/thumbnail-9.webp" alt="thumbnail">
                 </a>
@@ -636,9 +637,9 @@ let recommendRelated = () => {
                 </div>
             </article>
         `
-        document.querySelector(".recommend-all").classList.remove("activated");
-        document.querySelector(".recommend-same").classList.remove("activated");
-        document.querySelector(".recommend-related").classList.add("activated");
+    document.querySelector(".recommend-all").classList.remove("activated");
+    document.querySelector(".recommend-same").classList.remove("activated");
+    document.querySelector(".recommend-related").classList.add("activated");
 }
 
 
