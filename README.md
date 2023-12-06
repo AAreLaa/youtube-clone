@@ -24,6 +24,8 @@ An exact replica of youtube using HTML, CSS and JS.
 
 ![App Screenshot](assests/images/screenshots/1.png)
 
+![App Screenshot](assests/images/screenshots/6.png)
+
 ![App Screenshot](assests/images/screenshots/2.png)
 
 ![App Screenshot](assests/images/screenshots/3.png)
