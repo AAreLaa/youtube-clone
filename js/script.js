@@ -70,9 +70,10 @@ const scrollDisable = () => {
 
 //play recommended video
 
-const playRecommendedVideo = (url, title) => {
+const playRecommendedVideo = (url, title, shareUrl) => {
     document.getElementsByTagName('iframe')[0].src = url;
     document.getElementsByClassName('content-title')[0].innerHTML = title;
+    document.getElementById('youtube-link').innerHTML = shareUrl;
 }
 
 //for content like/dislike
