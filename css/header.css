@@ -365,3 +365,42 @@
     text-align: center;
     line-height: 1rem;
   }
+
+
+/* media queries */
+@media (min-width: 601px) and (max-width: 1120px) {
+  .notification-modal {
+    width: 70vw;
+  }
+
+  .header__menu-button {
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .header__search-bar {
+    display: none;
+  }
+
+  .header__search-button {
+    background-color: transparent;
+    border: none;
+    border-radius: 50px;
+    padding: 2px;
+    height: 42px;
+    width: 42px;
+  }
+
+  .notification-modal {
+    width: 70vw;
+  }
+
+  .header__menu-button {
+    margin: 1rem;
+  }
+
+  .header__voice-button {
+    display: none;
+  }
+}

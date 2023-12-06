@@ -205,8 +205,7 @@ main {
 
 .comment-section{
     margin: 2rem 0;
-    padding-bottom: 24rem;
-
+    padding-bottom: 1rem;
 }
 
 .comment-info{
@@ -465,10 +464,11 @@ main {
 
 .side-video-list {
     display: flex;
-    width: 23rem;
+    flex-basis: 100%;
     justify-content: space-between;
     margin-bottom: 6px;
     flex-shrink: 0;
+    gap: 0.5rem;
 }
 
 .side-video-list img {
@@ -477,11 +477,11 @@ main {
 }
 
 .side-video-list .thumbnail {
-    flex-basis: 49%;
+    flex-basis: 10%;
 }
 
 .side-video-list .video-info {
-    flex-basis: 49%;
+    flex-basis: 90%;
 }
 
 a {
@@ -714,4 +714,109 @@ a {
     background-color: #acabab;
   }
 
+  /* media queries */
+  @media (min-width: 601px) and (max-width: 1120px) {
+      main {
+          flex-wrap: wrap;
+          margin: 2rem;
+      }
+
+      .side-recommendation {
+          flex-basis: 100%;
+      }
+
+      .content {
+          flex-basis: 100%;
+      }
+
+      .filter-tag {
+          width: 100%;
+      }
+
+      .side-video-list {
+          gap: 1rem;
+          width: 100%;
+          justify-content: flex-start;
+          margin-right: 1rem;
+      }
+
+      .side-video-list .thumbnail {
+          flex-basis: 10%;
+      }
+
+      .side-video-list .video-info {
+          flex-basis: 90%;
+          padding-right: 1rem;
+      }
+
+      .comment-section {
+          padding-bottom: 0;
+      }
+  }
+
+  @media (max-width: 600px) {
+      main {
+          flex-wrap: wrap;
+          margin: 1rem 0 1rem 1rem;
+      }
+
+      .side-recommendation {
+          flex-basis: 100%;
+      }
+
+      .content {
+          flex-basis: 100%;
+      }
+
+      .filter-tag {
+          width: 100%;
+      }
+
+      .side-video-list {
+          gap: 1rem;
+          width: 100%;
+          justify-content: flex-start;
+      }
+
+      .side-video-list .thumbnail {
+          flex-basis: 10%;
+      }
+
+      .side-video-list .video-info {
+          flex-basis: 90%;
+          padding-right: 1rem;
+      }
+
+      .comment-section {
+          padding-bottom: 0;
+      }
+
+      .content-info {
+          flex-wrap: wrap;
+      }
+
+      .content-info-left {
+          flex-basis: 100%;
+      }
+
+      .content-info-right {
+          flex-basis: 100%;
+          justify-content: flex-start;
+          gap: 1rem;
+          margin: 1rem 0 0 0;
+      }
+
+      .video-description {
+          margin: 50px 0 0 0;
+      }
+
+      .content-share-modal_show {
+          transform: scale(0.7);
+      }
+
+      .copied-notification {
+          bottom: 0;
+          left: 0;
+      }
+  }
 
